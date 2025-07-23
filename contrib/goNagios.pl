@@ -129,7 +129,7 @@ my $password=$config_bind{masterPw};
 
 	$stdout.="\n\tmembers:\t";
 	$j=0;
-	foreach $members($entry->get_value('memberUid'))
+	foreach $members($entry->get_value('member'))
 	{
 	$stdout.=$members." ";
 	$groupmembers[$i][$j]=$members;

@@ -169,7 +169,7 @@ class nagiosAccount extends plugin
     }
 
     if (!$ldap->success()){
-      msg_dialog::display(_("LDAP error"), msgPool::ldaperror($ldap->get_error(), $this->dn, 0, get_class()));
+      msg_dialog::display(_("LDAP error"), msgPool::ldaperror($ldap->get_error(), $this->dn, 0, __CLASS__));
     }
 
     /* Optionally execute a command after we're done */
@@ -254,7 +254,7 @@ class nagiosAccount extends plugin
     new log("view","users/".get_class($this),$this->dn,array_keys($this->attrs),$ldap->get_error());
 
     if (!$ldap->success()){
-      msg_dialog::display(_("LDAP error"), msgPool::ldaperror($ldap->get_error(), $this->dn, LDAP_MOD, get_class()));
+      msg_dialog::display(_("LDAP error"), msgPool::ldaperror($ldap->get_error(), $this->dn, LDAP_MOD, __CLASS__));
     }
 
     /* remove the entry from LDAP */
@@ -279,7 +279,7 @@ class nagiosAccount extends plugin
           "plOptions"       => array(),
           "plRequirements"=> array(
               'ldapSchema' => array('nagiosContact'=>'','nagiosAuth' => ''),
-              'onFailureDisablePlugin' => array(get_class())
+              'onFailureDisablePlugin' => array(__CLASS__)
               ),
 
           "plProvidedAcls"  => array(
@@ -306,6 +306,6 @@ class nagiosAccount extends plugin
   }
 }
 
-// vim:tabstop=2:expandtab:shiftwidth=2:filetype=php:syntax:ruler:
+
 
 ?>
